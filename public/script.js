@@ -9,7 +9,7 @@ $(document).ready(function(){
     var timeAnimation = 500;
     var quoteContainer = $('#quoteContainer');
     $.get(
-        "http://localhost:8000/api/quote", function (data) {
+        "/api/quote", function (data) {
             //fade out animation with callback
             quoteContainer.fadeOut(timeAnimation, function () {
                 quoteContainer.html('');
