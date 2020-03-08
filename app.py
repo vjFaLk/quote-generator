@@ -3,7 +3,6 @@ import uuid
 import sys
 
 import pymysql
-import redis
 
 import falcon
 

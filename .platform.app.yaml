@@ -7,7 +7,7 @@
 name: 'app'
 
 # The runtime the application uses.
-type: 'python:3.7'
+type: 'python:3.8'
 
 # The build-time dependencies of the app.
 dependencies:
@@ -26,7 +26,6 @@ hooks:
 # side is in the form `<service name>:<endpoint name>`.
 relationships:
     database: "db:mysql"
-    rediscache: "cache:redis"
 
 # The configuration of app when it is exposed to the web.
 web:
