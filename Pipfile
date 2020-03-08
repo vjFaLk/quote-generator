@@ -8,8 +8,10 @@ redis = "*"
 pymysql = "*"
 uwsgi = "*"
 platformshconfig = "~=2.0"
+falcon = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.8"
 
 [dev-packages]
+pylint = "*"
