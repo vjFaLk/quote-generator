@@ -16,3 +16,6 @@ body, html {
 #author{
     margin-top: 30px;
 }
+
+[v-cloak] > * { display:none; }
+[v-cloak]::before { content: "Loading..."; }
