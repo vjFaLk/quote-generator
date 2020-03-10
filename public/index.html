@@ -10,13 +10,17 @@
 </head>
 
 <body>
-    <div id="app">
-        <div id="quote">"{{ quote.quote }}"</div>
-        <div id="author">{{ quote.author }}</div">
+    <div id="app" v-cloak>
+        <div v-if="loading">
+            Loading...
+        </div>
+        <div v-if="!loading">
+            <div id="quote">"{{ quote.quote }}"</div>
+            <div id="author">{{ quote.author }}</div">
+            </div>
         </div>
 </body>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
 <script src='script.js'></script>
-
 </html>

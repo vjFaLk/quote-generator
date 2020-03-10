@@ -1,13 +1,18 @@
 new Vue({
     el: '#app',
-    data () {
-      return {
-        quote: null
-      }
+    data() {
+        return {
+            quote: null,
+            loading: false
+        }
     },
-    mounted () {
-      axios
-        .get('/api/quote')
-        .then(response => (this.quote = response.data))
+    mounted() {
+        this.loading = true
+        axios
+            .get('/api/quote')
+            .then(response => {
+            this.loading = false
+            this.quote = response.data
+            })
     }
-  })
+})
