@@ -8,6 +8,6 @@ new Vue({
     mounted () {
       axios
         .get('/api/quote')
-        .then(response => (this.quote = response))
+        .then(response => (this.quote = response.data))
     }
   })
