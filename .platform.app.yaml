@@ -46,6 +46,8 @@ web:
             root: "public"
             passthru: true
             expires: 1h
+            index:
+               - "index.html"
 
 # The size of the persistent disk of the application (in MB).
 disk: 512

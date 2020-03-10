@@ -1,20 +1,17 @@
+import sys
 import traceback
 import uuid
-import sys
-
-import pymysql
 
 import falcon
-
+import pymysql
 from platformshconfig import Config
 
-
 config = Config()
+
 
 class QuoteResource:
     def on_get(self, req, resp):
         resp.media = get_quote()
-
 
 
 def get_quote():
@@ -31,11 +28,13 @@ def get_quote():
 
     try:
         with connection.cursor() as cursor:
-            cursor.execute("SELECT quote, author FROM quotes ORDER BY RAND() LIMIT 1;")
+            cursor.execute(
+                "SELECT quote, author FROM quotes ORDER BY RAND() LIMIT 1;")
             return cursor.fetchone()
 
     finally:
         connection.close()
+
 
 application = falcon.API()
 application.add_route('/api/quote', QuoteResource())
