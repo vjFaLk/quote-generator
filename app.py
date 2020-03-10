@@ -13,11 +13,11 @@ config = Config()
 
 class QuoteResource:
     def on_get(self, req, resp):
-        resp.media = get_quote(req.params.get("id"))
+        resp.media = get_quote()
 
 
 
-def get_quote(id=None):
+def get_quote():
     database_config = config.credentials('database')
     connection = pymysql.connect(
         host=database_config["host"],
@@ -31,10 +31,7 @@ def get_quote(id=None):
 
     try:
         with connection.cursor() as cursor:
-            if id:
-                cursor.execute(f"SELECT * FROM quotes WHERE id={id};")
-            else:
-                cursor.execute("SELECT * FROM quotes ORDER BY RAND() LIMIT 1;")
+            cursor.execute("SELECT quote, author FROM quotes ORDER BY RAND() LIMIT 1;")
             return cursor.fetchone()
 
     finally:
