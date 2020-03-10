@@ -2,7 +2,7 @@ new Vue({
     el: '#app',
     data () {
       return {
-        quote: { quote: "Lorem ipsum dolor sit amet" , author: "Valmik Jangla"}
+        quote: null
       }
     },
     mounted () {
